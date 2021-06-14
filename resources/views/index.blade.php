@@ -7,8 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo</title>
   <!-- スタイルシート読み込み -->
-  <link rel="stylesheet" href="{{asset('/assets/css/reset.css')}}">
-  <link rel="stylesheet" href="{{asset('/assets/css/style.css')}}">
+  @if(app('env')=='local')
+  <link rel="stylesheet" href="{{asset('/css/reset.css')}}">
+  <link rel="stylesheet" href="{{asset('/css/style.css')}}">
+  @else
+  <link rel="stylesheet" href="{{secure_asset('/css/reset.css')}}">
+  <link rel="stylesheet" href="{{secure_asset('/css/style.css')}}">
+  @endif
+
 </head>
 
 <body>
